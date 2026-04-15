@@ -1,0 +1,30 @@
+/* Paragraph Styles */
+
+.paragraph {
+  margin-bottom: 1.8em;
+  padding: 0.5em 0;
+  transition: all 0.3s ease;
+}
+
+.simple {
+  line-height: 1.4;
+  margin-bottom: 1.4em;
+}
+
+.moderate {
+  line-height: 1.6;
+}
+
+.complex {
+  line-height: 1.8;
+  margin-bottom: 2.2em;
+}
+
+.paragraph:hover {
+  background: var(--bg-highlight);
+  border-radius: 4px;
+}
+
+.paragraph::selection {
+  background: var(--breathing-inhale);
+}

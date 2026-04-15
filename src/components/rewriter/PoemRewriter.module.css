@@ -1,0 +1,191 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 输入区域 */
+.inputSection {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.description {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  margin: 0 0 20px 0;
+}
+
+.warning {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--warning-color);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-calm);
+  box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+}
+
+.textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.textarea::placeholder {
+  color: var(--text-tertiary);
+  white-space: pre-wrap;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* 错误提示 */
+.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--error-color);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+/* 展示区域 */
+.displaySection {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.displayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.displayTitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.eyeTrackingStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(79, 172, 254, 0.1);
+  border-radius: 16px;
+  color: var(--accent-calm);
+  font-size: 0.85rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-calm);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* 空状态 */
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.emptyText {
+  color: var(--text-tertiary);
+  font-size: 0.95rem;
+  margin: 0 0 12px 0;
+}
+
+.eyeTrackingHint {
+  color: var(--accent-calm);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* 眼动追踪响应效果 */
+.eye-tracking-reactive {
+  transition: all 0.3s ease;
+}
+
+.eye-tracking-reactive.focusHigh {
+  /* 高专注度：清晰、正常速度 */
+}
+
+.eye-tracking-reactive.focusMedium {
+  /* 中等专注度：略透明、略模糊 */
+}
+
+.eye-tracking-reactive.focusLow {
+  /* 低专注度：更透明、更模糊 */
+}
+
+.eye-tracking-reactive.blinkEffect {
+  /* 眨眼效果 */
+}

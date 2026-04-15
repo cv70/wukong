@@ -1,0 +1,51 @@
+/* Breathing Animation Styles */
+
+.animation {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.circle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--breathing-inhale);
+  transition: all 4s ease-in-out;
+}
+
+.circleInner {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: var(--breathing-pause);
+  transition: all 4s ease-in-out;
+}
+
+.indicator {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.phase-inhale .circle {
+  transform: scale(1);
+  background: var(--breathing-inhale);
+}
+
+.phase-pause .circle {
+  transform: scale(1.2);
+  background: var(--breathing-pause);
+}
+
+.phase-exhale .circle {
+  transform: scale(1);
+  background: var(--breathing-exhale);
+}

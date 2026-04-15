@@ -1,0 +1,89 @@
+/* API Key Input Styles */
+
+.container {
+  margin-top: 12px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: 'ui-monospace', monospace;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-calm);
+  box-shadow: 0 0 0 3px rgba(138, 154, 125, 0.1);
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input.secure {
+  font-family: 'text-security-disc', 'ui-monospace', monospace;
+  -webkit-text-security: disc;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.saveButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent-calm);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.saveButton:hover {
+  background: var(--accent-subtle);
+}
+
+.saveButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.testButton {
+  padding: 8px 16px;
+  border: 1px solid var(--ui-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.testButton:hover {
+  background: var(--ui-hover);
+  color: var(--text-primary);
+}
+
+.status {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+.status.success {
+  color: var(--accent-calm);
+}
+
+.status.error {
+  color: var(--morandi-dusty-rose);
+}

@@ -1,0 +1,408 @@
+/* Global Styles - Cognitive Zen Breathing Reader */
+
+@import './styles/variables.css';
+@import './styles/themes/morandi.css';
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Breathing Animations */
+@keyframes breathing-inhale {
+  0% {
+    --breathing-offset: 0px;
+    --breathing-scale: 1;
+    --breathing-opacity: 1;
+  }
+  100% {
+    --breathing-offset: 2px;
+    --breathing-scale: 1.002;
+    --breathing-opacity: 0.95;
+  }
+}
+
+@keyframes breathing-exhale {
+  0% {
+    --breathing-offset: 2px;
+    --breathing-scale: 1.002;
+    --breathing-opacity: 0.95;
+  }
+  100% {
+    --breathing-offset: 0px;
+    --breathing-scale: 1;
+    --breathing-opacity: 1;
+  }
+}
+
+@keyframes breathing-pulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(var(--breathing-amplitude) * 2px));
+  }
+}
+
+@keyframes breathing-fade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: calc(1 - var(--breathing-amplitude) * 0.1);
+  }
+}
+
+@keyframes breathing-spacing {
+  0%, 100% {
+    letter-spacing: var(--letter-spacing);
+  }
+  50% {
+    letter-spacing: calc(var(--letter-spacing) + var(--breathing-amplitude) * 0.01em);
+  }
+}
+
+/* Breathing Text Classes */
+.breathing-text {
+  animation: breathing-pulse calc(var(--breathing-cycle-duration) / var(--breathing-speed)) var(--breathing-ease) infinite;
+  will-change: transform;
+}
+
+.breathing-fade {
+  animation: breathing-fade calc(var(--breathing-cycle-duration) / var(--breathing-speed)) var(--breathing-ease) infinite;
+}
+
+.breathing-spacing {
+  animation: breathing-spacing calc(var(--breathing-cycle-duration) / var(--breathing-speed)) var(--breathing-ease) infinite;
+}
+
+/* Paragraph Styles */
+.paragraph {
+  margin-bottom: 1.8em;
+  padding: 0.5em 0;
+  transition: all 0.3s ease;
+}
+
+.paragraph.complex {
+  line-height: var(--line-height);
+  margin-bottom: 2.2em;
+}
+
+.paragraph.simple {
+  line-height: calc(var(--line-height) * 0.9);
+  margin-bottom: 1.4em;
+}
+
+/* Sentence Styles */
+.sentence {
+  display: inline;
+  transition: opacity 0.3s ease;
+}
+
+.sentence:hover {
+  background: var(--bg-highlight);
+}
+
+/* Emphasis Styles */
+.emphasis-bold {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.emphasis-italic {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.emphasis-highlight {
+  background: var(--breathing-inhale);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+.emphasis-key {
+  color: var(--accent-subtle);
+  font-weight: 500;
+}
+
+/* Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+}
+
+.main-content {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 40px 24px;
+  background: var(--bg-primary);
+}
+
+.reading-view {
+  font-size: 1.1rem;
+  line-height: var(--line-height);
+  color: var(--text-primary);
+}
+
+.reading-view.paragraph {
+  margin-bottom: 2em;
+}
+
+/* Components */
+.panel {
+  background: var(--bg-primary);
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--ui-shadow);
+  padding: 20px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-tertiary);
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-subtle);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-tertiary);
+  transition: 0.3s;
+  border-radius: 28px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: '';
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.toggle input:checked + .toggle-slider {
+  background-color: var(--accent-calm);
+}
+
+.toggle input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* Button Styles */
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.button:hover {
+  background: var(--ui-hover);
+}
+
+.button:active {
+  background: var(--ui-active);
+}
+
+.button.primary {
+  background: var(--accent-calm);
+  color: white;
+}
+
+.button.primary:hover {
+  background: var(--accent-subtle);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Status Indicator */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.status-dot.active {
+  background: var(--accent-calm);
+  box-shadow: 0 0 8px var(--accent-calm);
+}
+
+.status-dot.inactive {
+  background: var(--text-tertiary);
+}
+
+.status-dot.error {
+  background: var(--morandi-dusty-rose);
+}
+
+/* Animation States */
+.animating {
+  pointer-events: none;
+}
+
+.paused {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .main-content {
+    padding: 24px 16px;
+  }
+
+  .reading-view {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus Mode */
+.focus-mode * {
+  text-align: justify;
+  text-align-last: auto;
+}
+
+.focus-mode .paragraph {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Breathing Guide Overlay */
+.breathing-guide-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.breathing-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--breathing-inhale);
+  transition: all 4s ease-in-out;
+  animation: breathing-circle 9s ease-in-out infinite;
+}
+
+@keyframes breathing-circle {
+  0%, 33% {
+    transform: scale(1);
+    background: var(--breathing-inhale);
+  }
+  33%, 66% {
+    transform: scale(1.3);
+    background: var(--breathing-pause);
+  }
+  66%, 100% {
+    transform: scale(1);
+    background: var(--breathing-exhale);
+  }
+}
+
+.breathing-text {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  animation: breathing-text-phase 9s ease-in-out infinite;
+}
+
+@keyframes breathing-text-phase {
+  0%, 33% {
+    opacity: 1;
+  }
+  33%, 66% {
+    opacity: 0.7;
+  }
+  66%, 100% {
+    opacity: 1;
+  }
+}

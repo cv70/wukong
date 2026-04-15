@@ -1,0 +1,28 @@
+/* Original Toggle Styles */
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--ui-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle:hover {
+  background: var(--ui-hover);
+}
+
+.toggle.active {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.icon {
+  font-size: 1rem;
+}

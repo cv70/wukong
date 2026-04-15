@@ -1,0 +1,88 @@
+/* Eye Tracking Setup Styles */
+
+.panel {
+  background: var(--bg-primary);
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.content {
+  margin-top: 16px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+  transition: all 0.3s ease;
+}
+
+.statusDot.active {
+  background: var(--accent-calm);
+  box-shadow: 0 0 8px var(--accent-calm);
+}
+
+.statusDot.error {
+  background: var(--morandi-dusty-rose);
+}
+
+.error {
+  padding: 12px;
+  background: rgba(181, 131, 122, 0.1);
+  border-radius: 8px;
+  color: var(--morandi-dusty-rose);
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+.info {
+  padding: 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.privacyNote {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 16px;
+  padding: 8px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+}

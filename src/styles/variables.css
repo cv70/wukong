@@ -1,0 +1,32 @@
+/* CSS Variables for Breathing Typography Engine */
+
+:root {
+  /* Breathing Animation Variables */
+  --breathing-speed: 0.15;
+  --breathing-amplitude: 1.0;
+  --breathing-offset: 0px;
+  --breathing-scale: 1;
+  --breathing-opacity: 1;
+  --breathing-blur: 0px;
+
+  /* Breathing Phase Colors */
+  --breathing-inhale: rgba(138, 154, 125, 0.08);
+  --breathing-exhale: rgba(181, 131, 122, 0.08);
+  --breathing-pause: rgba(158, 141, 169, 0.08);
+
+  /* Text Variables */
+  --line-height: 1.6;
+  --letter-spacing: 0.02em;
+  --word-spacing: normal;
+
+  /* Animation Timing */
+  --inhale-duration: 4s;
+  --pause-duration: 1s;
+  --exhale-duration: 4s;
+  --breathing-cycle-duration: calc(var(--inhale-duration) + var(--pause-duration) + var(--exhale-duration));
+
+  /* Ease Functions */
+  --breathing-ease: ease-in-out;
+  --breathing-ease-in: ease-in;
+  --breathing-ease-out: ease-out;
+}

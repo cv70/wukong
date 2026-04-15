@@ -1,0 +1,112 @@
+/* Morandi Color Theme */
+
+:root {
+  /* Morandi Primary Palette */
+  --morandi-slate: #8B919E;
+  --morandi-sage: #8A9A7D;
+  --morandi-dusty-rose: #B5837A;
+  --morandi-dusty-blue: #7F95A8;
+  --morandi-dusty-lavender: #9E8DA9;
+
+  /* Background Colors */
+  --bg-primary: #F5F3F0;
+  --bg-secondary: #E8E4DF;
+  --bg-tertiary: #DDD8D2;
+  --bg-focus: #F7F5F3;
+  --bg-highlight: #E8E4DF;
+
+  /* Text Colors */
+  --text-primary: #3D3A3D;
+  --text-secondary: #5D575D;
+  --text-tertiary: #8B858B;
+  --text-disabled: #B0AAB0;
+
+  /* Accent Colors */
+  --accent-subtle: #9E8DA9;
+  --accent-calm: #8A9A7D;
+  --accent-warm: #B5837A;
+
+  /* UI Elements */
+  --ui-border: #D8D3CD;
+  --ui-shadow: rgba(61, 58, 61, 0.08);
+  --ui-hover: #E8E4DF;
+  --ui-active: #DDD8D2;
+
+  /* Focus Mode */
+  --focus-background: #F7F5F3;
+  --focus-highlight: #E8E4DF;
+  --focus-text: #4A4649;
+
+  /* Breathing Animation */
+  --breathing-inhale-color: rgba(138, 154, 125, 0.1);
+  --breathing-exhale-color: rgba(181, 131, 122, 0.1);
+  --breathing-pause-color: rgba(158, 141, 169, 0.1);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1A1918;
+    --bg-secondary: #252422;
+    --bg-tertiary: #302F2D;
+    --bg-focus: #1F1E1D;
+    --bg-highlight: #252422;
+
+    --text-primary: #E6E2DF;
+    --text-secondary: #C4BEB9;
+    --text-tertiary: #8B858B;
+    --text-disabled: #5D575D;
+
+    --ui-border: #403E3C;
+    --ui-shadow: rgba(0, 0, 0, 0.15);
+    --ui-hover: #252422;
+    --ui-active: #302F2D;
+
+    --focus-background: #1F1E1D;
+    --focus-highlight: #252422;
+    --focus-text: #D4D0CD;
+
+    --breathing-inhale-color: rgba(138, 154, 125, 0.15);
+    --breathing-exhale-color: rgba(181, 131, 122, 0.15);
+    --breathing-pause-color: rgba(158, 141, 169, 0.15);
+  }
+}
+
+/* Theme Variants */
+.theme-calm {
+  --accent-primary: var(--morandi-sage);
+}
+
+.theme-warm {
+  --accent-primary: var(--morandi-dusty-rose);
+}
+
+.theme-cool {
+  --accent-primary: var(--morandi-dusty-blue);
+}
+
+/* Focus Mode */
+.focus-mode {
+  background: var(--focus-background);
+  color: var(--focus-text);
+}
+
+.focus-mode .paragraph {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Paper Texture Background */
+.paper-texture {
+  background:
+    linear-gradient(90deg, transparent 2%, rgba(230, 228, 221, 0.3) 3%, transparent 3%),
+    var(--bg-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .paper-texture {
+    background:
+      linear-gradient(90deg, transparent 2%, rgba(61, 58, 61, 0.15) 3%, transparent 3%),
+      var(--bg-primary);
+  }
+}

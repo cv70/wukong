@@ -1,0 +1,32 @@
+/* Reading View Styles */
+
+.readingView {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: var(--line-height, 1.6);
+  letter-spacing: var(--letter-spacing, 0.02em);
+  color: var(--text-primary);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+.focusMode {
+  max-width: 650px;
+  text-align: justify;
+  text-align-last: auto;
+}
+
+.focusMode .paragraph {
+  margin-bottom: 2.5em;
+}
+
+.breathingEnabled .paragraph {
+  animation: breathing-pulse calc(var(--breathing-cycle-duration) / var(--breathing-speed)) var(--breathing-ease) infinite;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .readingView {
+    padding: 16px 12px;
+  }
+}

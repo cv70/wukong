@@ -1,0 +1,92 @@
+/* Rewriter Panel Styles */
+
+.panel {
+  background: var(--bg-primary);
+  border: 1px solid var(--ui-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.content {
+  margin-top: 16px;
+}
+
+.originalText {
+  padding: 16px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  border-left: 3px solid var(--ui-border);
+}
+
+.rewrittenText {
+  padding: 16px;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  border-left: 3px solid var(--accent-calm);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: var(--text-tertiary);
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--ui-border);
+  border-top-color: var(--accent-calm);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.error {
+  padding: 16px;
+  background: rgba(181, 131, 122, 0.1);
+  border-radius: 8px;
+  color: var(--morandi-dusty-rose);
+  font-size: 0.9rem;
+}
+
+.warning {
+  padding: 16px;
+  background: rgba(209, 170, 109, 0.15);
+  border-radius: 8px;
+  color: var(--morandi-cognac);
+  font-size: 0.9rem;
+  border-left: 3px solid var(--morandi-cognac);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

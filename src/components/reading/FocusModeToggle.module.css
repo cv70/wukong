@@ -1,0 +1,33 @@
+/* Focus Mode Toggle Styles */
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--ui-border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle:hover {
+  background: var(--ui-hover);
+}
+
+.toggle.active {
+  background: var(--accent-calm);
+  color: white;
+  border-color: var(--accent-calm);
+}
+
+.icon {
+  font-size: 1.1em;
+}
+
+.label {
+  font-weight: 500;
+}

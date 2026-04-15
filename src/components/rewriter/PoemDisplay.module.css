@@ -1,0 +1,147 @@
+.poemDisplay {
+  --font-size: 1.5rem;
+  --line-height: 2rem;
+  --opacity: 1;
+  --blur: 0px;
+  --jump-x: 0px;
+  --jump-y: 0px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  min-height: 200px;
+  opacity: var(--opacity);
+  filter: blur(var(--blur));
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.line {
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  animation: fadeInLine 0.5s ease forwards;
+}
+
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInChar 0.3s ease forwards;
+}
+
+@keyframes fadeInLine {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInChar {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 眼动追踪响应效果 */
+.poemDisplay.focusHigh {
+  --opacity: 1;
+  --blur: 0px;
+}
+
+.poemDisplay.focusMedium {
+  --opacity: 0.8;
+  --blur: 1px;
+}
+
+.poemDisplay.focusLow {
+  --opacity: 0.6;
+  --blur: 2px;
+}
+
+/* 眨眼效果 */
+.poemDisplay.blinkEffect {
+  animation: blinkPulse 0.3s ease;
+}
+
+@keyframes blinkPulse {
+  0%, 100% {
+    opacity: var(--opacity);
+  }
+  50% {
+    opacity: calc(var(--opacity) * 0.3);
+  }
+}
+
+/* 注视效果 */
+.poemDisplay.gazeEffect {
+  transition: transform 0.2s ease;
+}
+
+.char:hover {
+  color: var(--accent-calm);
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+
+/* 呼吸动画效果 */
+.poemDisplay.breathing {
+  animation: breathing 4s ease-in-out infinite;
+}
+
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* 眼动方向跳动动画 */
+.poemDisplay.jumping .char.jump {
+  animation: fadeInChar 0.3s ease forwards, gazeJump 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes gazeJump {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(var(--jump-offset-y)) translateX(var(--jump-offset-x));
+  }
+}
+
+/* 丰富文字颜色效果 */
+.char:hover {
+  color: var(--accent-calm);
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+  text-shadow: 0 0 8px currentColor;
+}
+
+/* 不同专注级别的颜色变化 */
+.poemDisplay.focusHigh .char {
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.poemDisplay.focusMedium .char {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.poemDisplay.focusLow .char {
+  text-shadow: none;
+}

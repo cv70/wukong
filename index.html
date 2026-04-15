@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>认知禅意呼吸阅读器</title>
+    <!-- MediaPipe Face Mesh for Eye Tracking -->
+    <script src="https://unpkg.com/@mediapipe/face_mesh@0.4.1633529619/face_mesh.js"></script>
+    <script src="https://unpkg.com/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js"></script>
+    <script src="https://unpkg.com/@mediapipe/drawing_utils@0.3.16202482579495/drawing_utils.js"></script>
+    <script>
+      // Debug script loading
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          console.log('[MediaPipe] Checking scripts...');
+          console.log('[MediaPipe] FaceMesh:', typeof window.FaceMesh);
+          console.log('[MediaPipe] Camera:', typeof window.Camera);
+          console.log('[MediaPipe] DrawingUtils:', typeof window.DrawingUtils);
+        }, 2000);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
